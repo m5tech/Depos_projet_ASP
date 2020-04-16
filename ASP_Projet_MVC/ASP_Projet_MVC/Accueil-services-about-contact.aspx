@@ -40,13 +40,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="Produits.aspx">Produits</a>
+            <a class="nav-link js-scroll-trigger" href="#">Produits</a>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services">Services</a>
           </li>
-          <li class="nav-item">
+<%--          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
+          </li>--%>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
@@ -78,7 +78,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 class="section-subheading text-muted">We Are Here For You</h3>
         </div>
       </div>
       <div class="row text-center">
@@ -116,7 +116,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Portfolio</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
       <div class="row">
@@ -226,7 +226,7 @@
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>2009-2011</h4>
+                  <h4>2019-2020</h4>
                   <h4 class="subheading">Our Humble Beginnings</h4>
                 </div>
                 <div class="timeline-body">
@@ -414,7 +414,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 class="section-subheading text-muted">We Are Here For You</h3>
         </div>
       </div>
       <div class="row">
