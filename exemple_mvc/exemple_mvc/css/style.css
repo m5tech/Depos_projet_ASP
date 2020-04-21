@@ -1,0 +1,61 @@
+*,*::before,*::after{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+footer{
+    margin-top:200px;
+}
+
+body {
+    margin-top:100px;
+    position: center;
+    text-align: center;
+    background-image:url("../img/logozmBWO.png");
+    background-size:40%;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-position:center;
+
+}
+#conteneur {
+    background-color: rgba(133,133,133,0.6);
+    margin: 30px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+input[type="radio"] {
+    -webkit-appearance: none;
+}
+label{
+	height: 180px;
+	width: 240px;
+	border:6px solid black;
+	position: relative;
+	margin: auto;
+	border-radius: 10px;
+	color: black;
+	transition: 0.5s;
+}
+.fa{
+	font-size: 80px;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-80%);
+}
+label > span {
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,80%);
+    font-family: "Caviar Dreams",sans-serif;
+    font-weight: bold;
+}
+input[type="radio"]:checked + label{
+	background-color: black;
+	color: white;
+	box-shadow: 0 15px 45px rgba(0,0,0,0.8);
+}

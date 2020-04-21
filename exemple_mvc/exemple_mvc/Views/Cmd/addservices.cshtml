@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "addservices";
+    Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
+}
+<link href="~/css/checkbox.css" rel="stylesheet" />
+<!-- Rounded switch -->
+<div id="conteneur">
+    <h1>Voulez-Vous Ajouter des Services ?</h1><br /><br />
+    <div id="check-container">
+        <label class="switch">
+            <input type="checkbox" id="windows">
+            <span class="slider round"></span>
+        </label>
+        <label for="windows">Windows 10</label><br />
+        <label class="switch">
+            <input type="checkbox" id="microsoft">
+            <span class="slider round"></span>
+        </label>
+        <label for="microsoft">Microsoft Office</label><br />
+        <label class="switch">
+            <input type="checkbox" id="ps">
+            <span class="slider round"></span>
+        </label>
+        <label for="ps">Photoshop</label><br />
+
+    </div><br />
+    <input type="button" value="Confirmer" id="btn" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" />
+</div>

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Type Client";
+    Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="conteneur">
+        <h1>Etes-Vous Particulier ou Entreprise ?</h1><br /><br />
+        <input type="radio" name="typclient" id="Entreprise">
+        <label for="Entreprise">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <span>Entreprise</span>
+        </label>
+        <input type="radio" name="typclient" id="particulier">
+        <label for="particulier">
+            <i class="fa fa-user-alt" aria-hidden="true"></i>
+            <span>Particulier</span>
+        </label>
+        <br /><br />
+        <input type="button" value="Confirmer" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"/>
+    </div>   
+</body>
+</html>
+

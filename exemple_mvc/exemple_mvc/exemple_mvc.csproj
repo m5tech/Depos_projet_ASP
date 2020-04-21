@@ -91,6 +91,8 @@
     <Content Include="css\agency-2.css" />
     <Content Include="css\agency.css" />
     <Content Include="css\agency.min.css" />
+    <Content Include="css\checkbox.css" />
+    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="img\about\1.jpg" />
@@ -103,6 +105,10 @@
     <Content Include="img\logos\envato.jpg" />
     <Content Include="img\logos\logoZM_background_white.png" />
     <Content Include="img\logos\themeforest.jpg" />
+    <Content Include="img\logozmBB.png" />
+    <Content Include="img\logozmBBO.png" />
+    <Content Include="img\logozmBW.png" />
+    <Content Include="img\logozmBWO.png" />
     <Content Include="img\map-image.png" />
     <Content Include="img\portfolio\01-full.jpg" />
     <Content Include="img\portfolio\01-thumbnail.jpg" />
@@ -123,7 +129,23 @@
     <Content Include="js\agency.min.js" />
     <Content Include="js\contact_me.js" />
     <Content Include="js\jqBootstrapValidation.js" />
+    <Content Include="js\main.js" />
     <Content Include="mail\contact_me.php" />
+    <Content Include="vendor\animate\animate.css" />
+    <Content Include="vendor\animate\daterangepicker\daterangepicker.css" />
+    <Content Include="vendor\animate\daterangepicker\daterangepicker.js" />
+    <Content Include="vendor\animate\daterangepicker\moment.js" />
+    <Content Include="vendor\animate\daterangepicker\moment.min.js" />
+    <Content Include="vendor\animate\hamburgers.css" />
+    <Content Include="vendor\animate\hamburgers.min.css" />
+    <Content Include="vendor\animate\select2\select2.css" />
+    <Content Include="vendor\animate\select2\select2.js" />
+    <Content Include="vendor\animate\select2\select2.min.css" />
+    <Content Include="vendor\animate\select2\select2.min.js" />
+    <Content Include="vendor\animsition\css\animsition.css" />
+    <Content Include="vendor\animsition\css\animsition.min.css" />
+    <Content Include="vendor\animsition\js\animsition.js" />
+    <Content Include="vendor\animsition\js\animsition.min.js" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
@@ -134,12 +156,21 @@
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\bootstrap\js\popper.js" />
+    <Content Include="vendor\countdowntime\countdowntime.js" />
+    <Content Include="vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="vendor\daterangepicker\moment.js" />
+    <Content Include="vendor\daterangepicker\moment.min.js" />
     <Content Include="vendor\fontawesome-free\css\all.css" />
     <Content Include="vendor\fontawesome-free\css\all.min.css" />
     <Content Include="vendor\fontawesome-free\css\brands.css" />
     <Content Include="vendor\fontawesome-free\css\brands.min.css" />
     <Content Include="vendor\fontawesome-free\css\fontawesome.css" />
     <Content Include="vendor\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="vendor\fontawesome-free\css\icon-font.min.css" />
     <Content Include="vendor\fontawesome-free\css\regular.css" />
     <Content Include="vendor\fontawesome-free\css\regular.min.css" />
     <Content Include="vendor\fontawesome-free\css\solid.css" />
@@ -154,14 +185,22 @@
     <Content Include="vendor\jquery-easing\jquery.easing.compatibility.js" />
     <Content Include="vendor\jquery-easing\jquery.easing.js" />
     <Content Include="vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="vendor\jquery\jquery-3.2.1.min.js" />
     <Content Include="vendor\jquery\jquery.js" />
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
+    <Content Include="vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="vendor\select2\select2.css" />
+    <Content Include="vendor\select2\select2.js" />
+    <Content Include="vendor\select2\select2.min.css" />
+    <Content Include="vendor\select2\select2.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CmdController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MagazinController.cs" />
     <Compile Include="Global.asax.cs">
@@ -223,6 +262,10 @@
     <Content Include="Views\Shared\_LayoutGlobal.cshtml" />
     <Content Include="Views\Magazin\Produits.cshtml" />
     <Content Include="Views\Magazin\Article.cshtml" />
+    <Content Include="Views\Cmd\TypeClient.cshtml" />
+    <Content Include="Views\Cmd\TypeCmd.cshtml" />
+    <Content Include="Views\Cmd\sendinfo.cshtml" />
+    <Content Include="Views\Cmd\addservices.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
