@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBprojetASPModelStoreContainer" CdmEntityContainer="DBprojetASPEntities">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="DBprojetASPModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Idad" ColumnName="Idad" />
+          <ScalarProperty Name="nomad" ColumnName="nomad" />
+          <ScalarProperty Name="emailad" ColumnName="emailad" />
+          <ScalarProperty Name="passwordad" ColumnName="passwordad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="DBprojetASPModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Idcli" ColumnName="Idcli" />
+          <ScalarProperty Name="nomcli" ColumnName="nomcli" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="typcli" ColumnName="typcli" />
+          <ScalarProperty Name="ice" ColumnName="ice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Command">
+      <EntityTypeMapping TypeName="DBprojetASPModel.Command">
+        <MappingFragment StoreEntitySet="Command">
+          <ScalarProperty Name="Idcmd" ColumnName="Idcmd" />
+          <ScalarProperty Name="nomcli" ColumnName="nomcli" />
+          <ScalarProperty Name="prixcmd" ColumnName="prixcmd" />
+          <ScalarProperty Name="nomproserv" ColumnName="nomproserv" />
+          <ScalarProperty Name="quantit" ColumnName="quantit" />
+          <ScalarProperty Name="typecmd" ColumnName="typecmd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produit">
+      <EntityTypeMapping TypeName="DBprojetASPModel.Produit">
+        <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="Idp" ColumnName="Idp" />
+          <ScalarProperty Name="nomp" ColumnName="nomp" />
+          <ScalarProperty Name="prixp" ColumnName="prixp" />
+          <ScalarProperty Name="descp" ColumnName="descp" />
+          <ScalarProperty Name="imgp" ColumnName="imgp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="DBprojetASPModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="Ids" ColumnName="Ids" />
+          <ScalarProperty Name="noms" ColumnName="noms" />
+          <ScalarProperty Name="descs" ColumnName="descs" />
+          <ScalarProperty Name="prixs" ColumnName="prixs" />
+          <ScalarProperty Name="imgs" ColumnName="imgs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

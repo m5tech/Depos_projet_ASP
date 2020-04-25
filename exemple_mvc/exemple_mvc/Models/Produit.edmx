@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_ASP_ProjetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_ADMIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_CILENT" Type="nvarchar" MaxLength="50" />
+          <Property Name="ADRESSE" Type="nvarchar" MaxLength="50" />
+          <Property Name="TYPE_CLIENT" Type="nvarchar" MaxLength="50" />
+          <Property Name="ICE" Type="int" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_CLIENT" Type="nvarchar" MaxLength="50" />
+          <Property Name="TOTAL" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TYPE_COMMANDE" Type="nvarchar" MaxLength="50" />
+          <Property Name="QUNTITE" Type="int" />
+        </EntityType>
+        <EntityType Name="produit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_PRODUIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_SERVICE" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DESCRIPTON" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DB_ASP_ProjetModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="commande" EntityType="Self.commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="produit" EntityType="Self.produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_ASP_ProjetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_ADMIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_CILENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADRESSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE_CLIENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ICE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_CLIENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TYPE_COMMANDE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QUNTITE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="produit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_PRODUIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRIX" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_SERVICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRIX" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DESCRIPTON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DB_ASP_ProjetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="clients" EntityType="Self.client" />
+          <EntitySet Name="commandes" EntityType="Self.commande" />
+          <EntitySet Name="produits" EntityType="Self.produit" />
+          <EntitySet Name="services" EntityType="Self.service" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_ASP_ProjetModelStoreContainer" CdmEntityContainer="DB_ASP_ProjetEntities">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="DB_ASP_ProjetModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_ADMIN" ColumnName="NOM_ADMIN" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="DB_ASP_ProjetModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_CILENT" ColumnName="NOM_CILENT" />
+                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+                <ScalarProperty Name="TYPE_CLIENT" ColumnName="TYPE_CLIENT" />
+                <ScalarProperty Name="ICE" ColumnName="ICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commandes">
+            <EntityTypeMapping TypeName="DB_ASP_ProjetModel.commande">
+              <MappingFragment StoreEntitySet="commande">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_CLIENT" ColumnName="NOM_CLIENT" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="TYPE_COMMANDE" ColumnName="TYPE_COMMANDE" />
+                <ScalarProperty Name="QUNTITE" ColumnName="QUNTITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produits">
+            <EntityTypeMapping TypeName="DB_ASP_ProjetModel.produit">
+              <MappingFragment StoreEntitySet="produit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME_PRODUIT" ColumnName="NAME_PRODUIT" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="DB_ASP_ProjetModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOM_SERVICE" ColumnName="NOM_SERVICE" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+                <ScalarProperty Name="DESCRIPTON" ColumnName="DESCRIPTON" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

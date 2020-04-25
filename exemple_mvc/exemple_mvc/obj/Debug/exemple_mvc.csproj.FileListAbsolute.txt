@@ -73,3 +73,9 @@ E:\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.csproj.CoreCompileInputs.cache
 E:\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.csproj.CopyComplete
 E:\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.dll
 E:\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.pdb
+E:\exemple_mvc\exemple_mvc\bin\EntityFramework.dll
+E:\exemple_mvc\exemple_mvc\bin\EntityFramework.SqlServer.dll
+E:\exemple_mvc\exemple_mvc\bin\EntityFramework.xml
+E:\exemple_mvc\exemple_mvc\bin\EntityFramework.SqlServer.xml
+E:\exemple_mvc\exemple_mvc\bin\fr\EntityFramework.resources.dll
+E:\exemple_mvc\exemple_mvc\bin\fr\EntityFramework.SqlServer.resources.dll

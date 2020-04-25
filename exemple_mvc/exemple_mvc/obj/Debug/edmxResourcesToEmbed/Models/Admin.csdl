@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBprojetASPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Idad" />
+    </Key>
+    <Property Name="Idad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="emailad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="passwordad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Idcli" />
+    </Key>
+    <Property Name="Idcli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomcli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="typcli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ice" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Command">
+    <Key>
+      <PropertyRef Name="Idcmd" />
+    </Key>
+    <Property Name="Idcmd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomcli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="prixcmd" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="nomproserv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="quantit" Type="Int32" />
+    <Property Name="typecmd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="Idp" />
+    </Key>
+    <Property Name="Idp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="prixp" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="descp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="imgp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Ids" />
+    </Key>
+    <Property Name="Ids" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="noms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="descs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="prixs" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="imgs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DBprojetASPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Command" EntityType="Self.Command" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+  </EntityContainer>
+</Schema>

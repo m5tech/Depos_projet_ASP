@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -122,6 +130,12 @@
     <Content Include="img\portfolio\05-thumbnail.jpg" />
     <Content Include="img\portfolio\06-full.jpg" />
     <Content Include="img\portfolio\06-thumbnail.jpg" />
+    <Content Include="img\portfolio\1.png" />
+    <Content Include="img\portfolio\100.jpg" />
+    <Content Include="img\portfolio\102.jpg" />
+    <Content Include="img\portfolio\103.jpg" />
+    <Content Include="img\portfolio\2.png" />
+    <Content Include="img\portfolio\3.jpg" />
     <Content Include="img\team\1.jpg" />
     <Content Include="img\team\2.jpg" />
     <Content Include="img\team\3.jpg" />
@@ -131,6 +145,16 @@
     <Content Include="js\jqBootstrapValidation.js" />
     <Content Include="js\main.js" />
     <Content Include="mail\contact_me.php" />
+    <Content Include="Models\Produit.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Produit.edmx</DependentUpon>
+      <LastGenOutput>Produit.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Produit.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Produit.edmx</DependentUpon>
+      <LastGenOutput>Produit1.cs</LastGenOutput>
+    </Content>
     <Content Include="vendor\animate\animate.css" />
     <Content Include="vendor\animate\daterangepicker\daterangepicker.css" />
     <Content Include="vendor\animate\daterangepicker\daterangepicker.js" />
@@ -203,11 +227,40 @@
     <Compile Include="Controllers\CmdController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MagazinController.cs" />
+    <Compile Include="Controllers\produitsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Produit.cs" />
-    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\admin.cs">
+      <DependentUpon>Produit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\client.cs">
+      <DependentUpon>Produit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\commande.cs">
+      <DependentUpon>Produit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Produit.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Produit.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\produit.cs">
+      <DependentUpon>Produit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Produit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Produit.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Produit1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Produit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\service.cs">
+      <DependentUpon>Produit.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +271,13 @@
     <Content Include="LICENSE" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
+    <EntityDeploy Include="Models\Produit.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Produit.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Produit.edmx.diagram">
+      <DependentUpon>Produit.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutAccueil.cshtml" />
     <Content Include="README.md" />
@@ -266,6 +326,13 @@
     <Content Include="Views\Cmd\TypeCmd.cshtml" />
     <Content Include="Views\Cmd\sendinfo.cshtml" />
     <Content Include="Views\Cmd\addservices.cshtml" />
+    <Content Include="Views\produits\Create.cshtml" />
+    <Content Include="Views\produits\Delete.cshtml" />
+    <Content Include="Views\produits\Details.cshtml" />
+    <Content Include="Views\produits\Edit.cshtml" />
+    <Content Include="Views\produits\Index.cshtml" />
+    <Content Include="Views\produits\Show.cshtml" />
+    <Content Include="Views\produits\ArticleInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -275,6 +342,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,99 @@
+﻿@model exemple_mvc.Models.produit
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
+}
+
+<div class="container" id="shop">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <!-- Custom styles for this template -->
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h1 class="my-4">Shop Name</h1>
+            <div class="list-group">
+                <a href="#" class="list-group-item">Category 1</a>
+                <a href="#" class="list-group-item">Category 2</a>
+                <a href="#" class="list-group-item">Category 3</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+            <div class="card mt-4">
+                <img class="card-img-top img-fluid" src="~/img/portfolio/@Model.IMAGE" >
+                <div class="card-body">
+                    <h3 class="card-title">@Model.NAME_PRODUIT</h3>
+                    <h4>@Model.PRIX DH</h4>
+                    <p class="card-text">@Model.DESCRIPTION</p>
+                    
+                   
+                    <a href="#" class="btn btn-success">ACHETER</a>
+                </div>
+            </div>
+            <!-- /.card -->
+
+            <div class="card card-outline-secondary my-4">
+
+                <!-- /.card -->
+
+            </div>
+            <!-- /.col-lg-9 -->
+
+        </div>
+
+    </div>
+</div>
+<!-- /.container -->
+
+
+<div>
+    <h4>produit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME_PRODUIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME_PRODUIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRIX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRIX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMAGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMAGE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

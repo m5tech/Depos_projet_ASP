@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBprojetASPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Idad" />
+    </Key>
+    <Property Name="Idad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomad" Type="nvarchar" MaxLength="50" />
+    <Property Name="emailad" Type="nvarchar" MaxLength="50" />
+    <Property Name="passwordad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Idcli" />
+    </Key>
+    <Property Name="Idcli" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomcli" Type="nvarchar" MaxLength="50" />
+    <Property Name="adresse" Type="nvarchar" MaxLength="100" />
+    <Property Name="typcli" Type="nvarchar" MaxLength="50" />
+    <Property Name="ice" Type="int" />
+  </EntityType>
+  <EntityType Name="Command">
+    <Key>
+      <PropertyRef Name="Idcmd" />
+    </Key>
+    <Property Name="Idcmd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomcli" Type="nvarchar" MaxLength="50" />
+    <Property Name="prixcmd" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="nomproserv" Type="nvarchar" MaxLength="50" />
+    <Property Name="quantit" Type="int" />
+    <Property Name="typecmd" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="Idp" />
+    </Key>
+    <Property Name="Idp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomp" Type="nvarchar" MaxLength="50" />
+    <Property Name="prixp" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="descp" Type="nvarchar" MaxLength="50" />
+    <Property Name="imgp" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Ids" />
+    </Key>
+    <Property Name="Ids" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noms" Type="nvarchar" MaxLength="50" />
+    <Property Name="descs" Type="nvarchar" MaxLength="50" />
+    <Property Name="prixs" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="imgs" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="DBprojetASPModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Command" EntityType="Self.Command" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
