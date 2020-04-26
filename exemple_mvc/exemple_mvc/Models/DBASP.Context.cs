@@ -13,10 +13,10 @@ namespace exemple_mvc.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_ASP_ProjetEntities : DbContext
+    public partial class DB_ASP_ProjetEntities2 : DbContext
     {
-        public DB_ASP_ProjetEntities()
-            : base("name=DB_ASP_ProjetEntities")
+        public DB_ASP_ProjetEntities2()
+            : base("name=DB_ASP_ProjetEntities2")
         {
         }
     
@@ -25,10 +25,10 @@ namespace exemple_mvc.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<admin> admins { get; set; }
-        public virtual DbSet<client> clients { get; set; }
-        public virtual DbSet<commande> commandes { get; set; }
-        public virtual DbSet<produit> produits { get; set; }
-        public virtual DbSet<service> services { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
+        public virtual DbSet<client> client { get; set; }
+        public virtual DbSet<commande> commande { get; set; }
+        public virtual DbSet<produit> produit { get; set; }
+        public virtual DbSet<service> service { get; set; }
     }
 }

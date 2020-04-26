@@ -1,0 +1,51 @@
+﻿@model exemple_mvc.Models.service
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM_SERVICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM_SERVICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRIX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRIX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMAGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMAGE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

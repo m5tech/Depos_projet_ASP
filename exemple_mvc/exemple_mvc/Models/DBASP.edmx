@@ -43,16 +43,17 @@
           <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
           <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
           <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="TYPE_PRODUIT" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="service">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOM_SERVICE" Type="nvarchar" MaxLength="50" />
           <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="DESCRIPTON" Type="nvarchar" MaxLength="50" />
           <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+          <Property Name="NOM_SERVICE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="DB_ASP_ProjetModelStoreContainer">
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
@@ -104,31 +105,32 @@
           <Property Name="PRIX" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE_PRODUIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="service">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOM_SERVICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PRIX" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="DESCRIPTON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NOM_SERVICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="DB_ASP_ProjetEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="admins" EntityType="Self.admin" />
-          <EntitySet Name="clients" EntityType="Self.client" />
-          <EntitySet Name="commandes" EntityType="Self.commande" />
-          <EntitySet Name="produits" EntityType="Self.produit" />
-          <EntitySet Name="services" EntityType="Self.service" />
+        <EntityContainer Name="DB_ASP_ProjetEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="Self.admin" />
+          <EntitySet Name="client" EntityType="Self.client" />
+          <EntitySet Name="commande" EntityType="Self.commande" />
+          <EntitySet Name="produit" EntityType="Self.produit" />
+          <EntitySet Name="service" EntityType="Self.service" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB_ASP_ProjetModelStoreContainer" CdmEntityContainer="DB_ASP_ProjetEntities">
-          <EntitySetMapping Name="admins">
+        <EntityContainerMapping StorageEntityContainer="DB_ASP_ProjetModelStoreContainer" CdmEntityContainer="DB_ASP_ProjetEntities2">
+          <EntitySetMapping Name="admin">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.admin">
               <MappingFragment StoreEntitySet="admin">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -138,7 +140,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="clients">
+          <EntitySetMapping Name="client">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.client">
               <MappingFragment StoreEntitySet="client">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -149,7 +151,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="commandes">
+          <EntitySetMapping Name="commande">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.commande">
               <MappingFragment StoreEntitySet="commande">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -160,7 +162,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="produits">
+          <EntitySetMapping Name="produit">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.produit">
               <MappingFragment StoreEntitySet="produit">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -168,17 +170,18 @@
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="TYPE_PRODUIT" ColumnName="TYPE_PRODUIT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="services">
+          <EntitySetMapping Name="service">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.service">
               <MappingFragment StoreEntitySet="service">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NOM_SERVICE" ColumnName="NOM_SERVICE" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DESCRIPTON" ColumnName="DESCRIPTON" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="NOM_SERVICE" ColumnName="NOM_SERVICE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -196,8 +199,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
       </DesignerInfoPropertySet>

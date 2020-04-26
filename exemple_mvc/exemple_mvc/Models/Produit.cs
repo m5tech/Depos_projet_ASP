@@ -19,5 +19,6 @@ namespace exemple_mvc.Models
         public Nullable<decimal> PRIX { get; set; }
         public string DESCRIPTION { get; set; }
         public string IMAGE { get; set; }
+        public string TYPE_PRODUIT { get; set; }
     }
 }

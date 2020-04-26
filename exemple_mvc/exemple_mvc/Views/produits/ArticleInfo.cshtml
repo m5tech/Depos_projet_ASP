@@ -18,11 +18,11 @@
 
         <div class="col-lg-3">
             <h1 class="my-4">Shop Name</h1>
-            <div class="list-group">
+            @*<div class="list-group">
                 <a href="#" class="list-group-item">Category 1</a>
                 <a href="#" class="list-group-item">Category 2</a>
                 <a href="#" class="list-group-item">Category 3</a>
-            </div>
+            </div>*@
         </div>
         <!-- /.col-lg-3 -->
 
@@ -41,11 +41,6 @@
             </div>
             <!-- /.card -->
 
-            <div class="card card-outline-secondary my-4">
-
-                <!-- /.card -->
-
-            </div>
             <!-- /.col-lg-9 -->
 
         </div>
@@ -55,45 +50,3 @@
 <!-- /.container -->
 
 
-<div>
-    <h4>produit</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NAME_PRODUIT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NAME_PRODUIT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PRIX)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PRIX)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DESCRIPTION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DESCRIPTION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IMAGE)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IMAGE)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

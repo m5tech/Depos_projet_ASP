@@ -15,9 +15,9 @@ namespace exemple_mvc.Models
     public partial class service
     {
         public int ID { get; set; }
-        public string NOM_SERVICE { get; set; }
         public Nullable<decimal> PRIX { get; set; }
-        public string DESCRIPTON { get; set; }
         public string IMAGE { get; set; }
+        public string NOM_SERVICE { get; set; }
+        public string DESCRIPTION { get; set; }
     }
 }

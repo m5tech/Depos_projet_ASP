@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_ASP_ProjetModelStoreContainer" CdmEntityContainer="DB_ASP_ProjetEntities2">
+    <EntitySetMapping Name="admin">
+      <EntityTypeMapping TypeName="DB_ASP_ProjetModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOM_ADMIN" ColumnName="NOM_ADMIN" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="client">
+      <EntityTypeMapping TypeName="DB_ASP_ProjetModel.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOM_CILENT" ColumnName="NOM_CILENT" />
+          <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+          <ScalarProperty Name="TYPE_CLIENT" ColumnName="TYPE_CLIENT" />
+          <ScalarProperty Name="ICE" ColumnName="ICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="commande">
+      <EntityTypeMapping TypeName="DB_ASP_ProjetModel.commande">
+        <MappingFragment StoreEntitySet="commande">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOM_CLIENT" ColumnName="NOM_CLIENT" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="TYPE_COMMANDE" ColumnName="TYPE_COMMANDE" />
+          <ScalarProperty Name="QUNTITE" ColumnName="QUNTITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produit">
+      <EntityTypeMapping TypeName="DB_ASP_ProjetModel.produit">
+        <MappingFragment StoreEntitySet="produit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME_PRODUIT" ColumnName="NAME_PRODUIT" />
+          <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="TYPE_PRODUIT" ColumnName="TYPE_PRODUIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="service">
+      <EntityTypeMapping TypeName="DB_ASP_ProjetModel.service">
+        <MappingFragment StoreEntitySet="service">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="NOM_SERVICE" ColumnName="NOM_SERVICE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

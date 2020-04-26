@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_ASP_ProjetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOM_ADMIN" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOM_CILENT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ADRESSE" Type="nvarchar" MaxLength="50" />
+    <Property Name="TYPE_CLIENT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ICE" Type="int" />
+  </EntityType>
+  <EntityType Name="commande">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOM_CLIENT" Type="nvarchar" MaxLength="50" />
+    <Property Name="TOTAL" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TYPE_COMMANDE" Type="nvarchar" MaxLength="50" />
+    <Property Name="QUNTITE" Type="int" />
+  </EntityType>
+  <EntityType Name="produit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_PRODUIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+    <Property Name="TYPE_PRODUIT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOM_SERVICE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="DB_ASP_ProjetModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="commande" EntityType="Self.commande" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="produit" EntityType="Self.produit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

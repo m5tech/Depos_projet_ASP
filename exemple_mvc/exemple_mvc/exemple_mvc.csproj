@@ -130,12 +130,26 @@
     <Content Include="img\portfolio\05-thumbnail.jpg" />
     <Content Include="img\portfolio\06-full.jpg" />
     <Content Include="img\portfolio\06-thumbnail.jpg" />
-    <Content Include="img\portfolio\1.png" />
     <Content Include="img\portfolio\100.jpg" />
     <Content Include="img\portfolio\102.jpg" />
     <Content Include="img\portfolio\103.jpg" />
-    <Content Include="img\portfolio\2.png" />
-    <Content Include="img\portfolio\3.jpg" />
+    <Content Include="img\portfolio\cam1.png" />
+    <Content Include="img\portfolio\cam2.png" />
+    <Content Include="img\portfolio\cam3.png" />
+    <Content Include="img\portfolio\cam4.png" />
+    <Content Include="img\portfolio\cam5.png" />
+    <Content Include="img\portfolio\pc1.png" />
+    <Content Include="img\portfolio\pc2.png" />
+    <Content Include="img\portfolio\pc3.png" />
+    <Content Include="img\portfolio\phone1.png" />
+    <Content Include="img\portfolio\phone2.png" />
+    <Content Include="img\portfolio\phone3.png" />
+    <Content Include="img\portfolio\service1.png" />
+    <Content Include="img\portfolio\service2.png" />
+    <Content Include="img\portfolio\service3.png" />
+    <Content Include="img\portfolio\service4.png" />
+    <Content Include="img\portfolio\service5.png" />
+    <Content Include="img\portfolio\service6.png" />
     <Content Include="img\team\1.jpg" />
     <Content Include="img\team\2.jpg" />
     <Content Include="img\team\3.jpg" />
@@ -145,15 +159,15 @@
     <Content Include="js\jqBootstrapValidation.js" />
     <Content Include="js\main.js" />
     <Content Include="mail\contact_me.php" />
-    <Content Include="Models\Produit.Context.tt">
+    <Content Include="Models\DBASP.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Produit.edmx</DependentUpon>
-      <LastGenOutput>Produit.Context.cs</LastGenOutput>
+      <DependentUpon>DBASP.edmx</DependentUpon>
+      <LastGenOutput>DBASP.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Produit.tt">
+    <Content Include="Models\DBASP.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Produit.edmx</DependentUpon>
-      <LastGenOutput>Produit1.cs</LastGenOutput>
+      <DependentUpon>DBASP.edmx</DependentUpon>
+      <LastGenOutput>DBASP.cs</LastGenOutput>
     </Content>
     <Content Include="vendor\animate\animate.css" />
     <Content Include="vendor\animate\daterangepicker\daterangepicker.css" />
@@ -226,40 +240,40 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CmdController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MagazinController.cs" />
     <Compile Include="Controllers\produitsController.cs" />
+    <Compile Include="Controllers\servicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\admin.cs">
-      <DependentUpon>Produit.tt</DependentUpon>
+      <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\client.cs">
-      <DependentUpon>Produit.tt</DependentUpon>
+      <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\commande.cs">
-      <DependentUpon>Produit.tt</DependentUpon>
+      <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Produit.Context.cs">
+    <Compile Include="Models\DBASP.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Produit.Context.tt</DependentUpon>
+      <DependentUpon>DBASP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBASP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBASP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBASP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBASP.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\produit.cs">
-      <DependentUpon>Produit.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Produit.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Produit.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Produit1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Produit.tt</DependentUpon>
+      <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\service.cs">
-      <DependentUpon>Produit.tt</DependentUpon>
+      <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -271,12 +285,12 @@
     <Content Include="LICENSE" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <EntityDeploy Include="Models\Produit.edmx">
+    <EntityDeploy Include="Models\DBASP.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Produit.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBASP.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Produit.edmx.diagram">
-      <DependentUpon>Produit.edmx</DependentUpon>
+    <Content Include="Models\DBASP.edmx.diagram">
+      <DependentUpon>DBASP.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutAccueil.cshtml" />
@@ -318,7 +332,6 @@
     <Content Include="vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="vendor\jquery\jquery.min.map" />
     <Content Include="vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Views\Home\Accueil.cshtml" />
     <Content Include="Views\Shared\_LayoutGlobal.cshtml" />
     <Content Include="Views\Magazin\Produits.cshtml" />
     <Content Include="Views\Magazin\Article.cshtml" />
@@ -333,6 +346,16 @@
     <Content Include="Views\produits\Index.cshtml" />
     <Content Include="Views\produits\Show.cshtml" />
     <Content Include="Views\produits\ArticleInfo.cshtml" />
+    <Content Include="Views\produits\mobile.cshtml" />
+    <Content Include="Views\produits\system.cshtml" />
+    <Content Include="Views\produits\ordinateur.cshtml" />
+    <Content Include="Views\services\Create.cshtml" />
+    <Content Include="Views\services\Delete.cshtml" />
+    <Content Include="Views\services\Details.cshtml" />
+    <Content Include="Views\services\Edit.cshtml" />
+    <Content Include="Views\services\Index.cshtml" />
+    <Content Include="Views\Cmd\Accueil.cshtml" />
+    <Content Include="Views\services\Accueil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

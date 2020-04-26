@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<exemple_mvc.Models.produit>
 
 @{
-    ViewBag.Title = "Nos Produits";
+    ViewBag.Title = "Nos Ordinateurs";
     Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
 }
 
@@ -54,7 +54,7 @@
             <div class="row">
                 @foreach (var item in Model)
                 {
-                   
+                    if (item.TYPE_PRODUIT=="ordinateur") { 
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
                             <a href="http://localhost:52825/produits/ArticleInfo/@item.ID"><img class="card-img-top" src="~/img/portfolio/@Html.DisplayFor(modelItem => item.IMAGE)"></a>
@@ -63,7 +63,6 @@
                                     <a>@Html.ActionLink(item.NAME_PRODUIT, "ArticleInfo", new { id = item.ID })</a>
                                 </h4>
                                 <h5> @Html.DisplayFor(modelItem => item.PRIX) DH</h5>
-                                <h5> @Html.DisplayFor(modelItem => item.TYPE_PRODUIT)</h5>
                                 <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPTION)</p>
                             </div>
                             <div class="card-footer">
@@ -71,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                    }
                 }
                 </div>
             <!-- /.row -->

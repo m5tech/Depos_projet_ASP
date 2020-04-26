@@ -10,142 +10,113 @@ using exemple_mvc.Models;
 
 namespace exemple_mvc.Controllers
 {
-    public class produitsController : Controller
+    public class servicesController : Controller
     {
         private DB_ASP_ProjetEntities2 db = new DB_ASP_ProjetEntities2();
-        produit pr = new produit();
-        // GET: produits
+
+        // GET: services
         public ActionResult Index()
         {
-            return View(db.produit.ToList());
+            return View(db.service.ToList());
         }
 
-
-        // GET: produits
-        public ActionResult Show()
+        // GET: services
+        public ActionResult Accueil()
         {
-            return View(db.produit);
-        }
-        // GET: ordinateur
-        public ActionResult ordinateur()
-        {  
-            return View(db.produit);
-        }
-        // GET: produits
-        public ActionResult mobile()
-        {
-            return View(db.produit);
-        }
-        // GET: produits
-        public ActionResult system()
-        {
-            return View(db.produit);
+            return View(db.service);
         }
 
-        // GET: produits/Details/5
+        // GET: services/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            produit produit = db.produit.Find(id);
-            if (produit == null)
+            service service = db.service.Find(id);
+            if (service == null)
             {
                 return HttpNotFound();
             }
-            return View(produit);
-        }
-        public ActionResult ArticleInfo(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            produit produit = db.produit.Find(id);
-            if (produit == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produit);
+            return View(service);
         }
 
-        // GET: produits/Create
+        // GET: services/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: produits/Create
+        // POST: services/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NAME_PRODUIT,PRIX,DESCRIPTION,IMAGE")] produit produit)
+        public ActionResult Create([Bind(Include = "ID,NOM_SERVICE,PRIX,DESCRIPTON,IMAGE")] service service)
         {
             if (ModelState.IsValid)
             {
-                db.produit.Add(produit);
+                db.service.Add(service);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(produit);
+            return View(service);
         }
 
-        // GET: produits/Edit/5
+        // GET: services/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            produit produit = db.produit.Find(id);
-            if (produit == null)
+            service service = db.service.Find(id);
+            if (service == null)
             {
                 return HttpNotFound();
             }
-            return View(produit);
+            return View(service);
         }
 
-        // POST: produits/Edit/5
+        // POST: services/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NAME_PRODUIT,PRIX,DESCRIPTION,IMAGE")] produit produit)
+        public ActionResult Edit([Bind(Include = "ID,NOM_SERVICE,PRIX,DESCRIPTON,IMAGE")] service service)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produit).State = EntityState.Modified;
+                db.Entry(service).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(produit);
+            return View(service);
         }
 
-        // GET: produits/Delete/5
+        // GET: services/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            produit produit = db.produit.Find(id);
-            if (produit == null)
+            service service = db.service.Find(id);
+            if (service == null)
             {
                 return HttpNotFound();
             }
-            return View(produit);
+            return View(service);
         }
 
-        // POST: produits/Delete/5
+        // POST: services/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            produit produit = db.produit.Find(id);
-            db.produit.Remove(produit);
+            service service = db.service.Find(id);
+            db.service.Remove(service);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

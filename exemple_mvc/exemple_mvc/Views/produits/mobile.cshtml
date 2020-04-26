@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<exemple_mvc.Models.produit>
 
 @{
-    ViewBag.Title = "Nos Produits";
+    ViewBag.Title = "Nos Téléphones";
     Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
 }
 
 <div class="container">
+
 
     <div class="row" id="shop">
 
@@ -54,26 +55,26 @@
             <div class="row">
                 @foreach (var item in Model)
                 {
-                   
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="http://localhost:52825/produits/ArticleInfo/@item.ID"><img class="card-img-top" src="~/img/portfolio/@Html.DisplayFor(modelItem => item.IMAGE)"></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a>@Html.ActionLink(item.NAME_PRODUIT, "ArticleInfo", new { id = item.ID })</a>
-                                </h4>
-                                <h5> @Html.DisplayFor(modelItem => item.PRIX) DH</h5>
-                                <h5> @Html.DisplayFor(modelItem => item.TYPE_PRODUIT)</h5>
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPTION)</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                    if (item.TYPE_PRODUIT == "mobile")
+                    {
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="http://localhost:52825/produits/ArticleInfo/@item.ID"><img class="card-img-top" src="~/img/portfolio/@Html.DisplayFor(modelItem => item.IMAGE)"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a>@Html.ActionLink(item.NAME_PRODUIT, "ArticleInfo", new { id = item.ID })</a>
+                                    </h4>
+                                    <h5> @Html.DisplayFor(modelItem => item.PRIX) DH</h5>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPTION)</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
+                    }
                 }
-                </div>
+            </div>
             <!-- /.row -->
 
         </div>
