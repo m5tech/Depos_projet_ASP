@@ -159,3 +159,4 @@ F:\Projet_ASP\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.csproj.CoreCompileIn
 F:\Projet_ASP\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.csproj.CopyComplete
 F:\Projet_ASP\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.dll
 F:\Projet_ASP\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.pdb
+F:\Projet_ASP\exemple_mvc\exemple_mvc\obj\Debug\exemple_mvc.csprojAssemblyReference.cache

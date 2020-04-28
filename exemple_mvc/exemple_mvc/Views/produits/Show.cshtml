@@ -63,11 +63,26 @@
                                     <a>@Html.ActionLink(item.NAME_PRODUIT, "ArticleInfo", new { id = item.ID })</a>
                                 </h4>
                                 <h5> @Html.DisplayFor(modelItem => item.PRIX) DH</h5>
-                                <h5> @Html.DisplayFor(modelItem => item.TYPE_PRODUIT)</h5>
+                                
                                 <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPTION)</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                @switch (item.TYPE_PRODUIT)
+                                {
+                                    case "ordinateur":
+                                        <small class="text-muted" style="font-weight:bold;">Catégorie : Ordinateur</small>
+                                        break;
+                                    case "mobile":
+                                        <small class="text-muted" style="font-weight:bold;">Catégorie : Téléphone</small>
+                                        break;
+                                    case "system":
+                                        <small class="text-muted" style="font-weight:bold;">Catégorie : Systéme De Surveillance</small>
+                                        break;
+                                    default:
+                                        <small class="text-muted" style="font-weight:bold;"></small>
+                                        break;
+                                }
+
                             </div>
                         </div>
                     </div>

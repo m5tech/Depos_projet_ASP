@@ -588,7 +588,7 @@ header.masthead .intro-text .intro-heading {
 
 section#contact {
   background-color: black;
-  background-image: url("../img/map-image.png");
+  background-image:url(../img/map-image.png);
   background-repeat: no-repeat;
   background-position: center;
 }

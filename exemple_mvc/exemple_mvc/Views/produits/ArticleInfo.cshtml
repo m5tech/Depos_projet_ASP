@@ -1,7 +1,7 @@
 ﻿@model exemple_mvc.Models.produit
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Article | "+Model.NAME_PRODUIT;
     Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
 }
 
@@ -17,25 +17,27 @@
     <div class="row">
 
         <div class="col-lg-3">
-            <h1 class="my-4">Shop Name</h1>
-            @*<div class="list-group">
-                <a href="#" class="list-group-item">Category 1</a>
-                <a href="#" class="list-group-item">Category 2</a>
-                <a href="#" class="list-group-item">Category 3</a>
-            </div>*@
+            <h1 class="my-4">@Model.NAME_PRODUIT </h1>
+            <div class="list-group">
+                <a href="http://localhost:52825/produits/mobile" class="list-group-item">Mobile</a>
+                <a href="http://localhost:52825/produits/ordinateur" class="list-group-item">Ordinateur</a>
+                <a href="http://localhost:52825/produits/system" class="list-group-item">Systéme De Surveillance</a>
+                <a href="http://localhost:52825/produits/Show" class="list-group-item">Afficher tout</a>
+            </div>
         </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
 
             <div class="card mt-4">
-                <img class="card-img-top img-fluid" src="~/img/portfolio/@Model.IMAGE" >
+                <img class="card-img-top img-fluid" src="~/img/portfolio/@Model.IMAGE">
                 <div class="card-body">
                     <h3 class="card-title">@Model.NAME_PRODUIT</h3>
                     <h4>@Model.PRIX DH</h4>
                     <p class="card-text">@Model.DESCRIPTION</p>
-                    
-                   
+
+                    <label for="quantity">Quantité :</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="20" style="margin-right:60px;">
                     <a href="#" class="btn btn-success">ACHETER</a>
                 </div>
             </div>

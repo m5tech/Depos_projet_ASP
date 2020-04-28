@@ -239,7 +239,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CmdController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\produitsController.cs" />
     <Compile Include="Controllers\servicesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -333,8 +332,6 @@
     <Content Include="vendor\jquery\jquery.min.map" />
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Shared\_LayoutGlobal.cshtml" />
-    <Content Include="Views\Magazin\Produits.cshtml" />
-    <Content Include="Views\Magazin\Article.cshtml" />
     <Content Include="Views\Cmd\TypeClient.cshtml" />
     <Content Include="Views\Cmd\TypeCmd.cshtml" />
     <Content Include="Views\Cmd\sendinfo.cshtml" />
