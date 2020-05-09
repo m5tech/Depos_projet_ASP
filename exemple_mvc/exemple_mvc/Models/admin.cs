@@ -14,7 +14,7 @@ namespace exemple_mvc.Models
     
     public partial class admin
     {
-        public int ID { get; set; }
+        public int ID_ADM { get; set; }
         public string NOM_ADMIN { get; set; }
         public string EMAIL { get; set; }
         public string PASSWORD { get; set; }

@@ -1,7 +1,10 @@
 #shop{
     margin-top:50px;
 }
-
+#Button-center {
+    display: inline-block;
+    color:red;
+}
 
 body {
     overflow-x: hidden;

@@ -22,24 +22,57 @@ namespace exemple_mvc.Controllers
 
 
         // GET: produits
-        public ActionResult Show()
+        public ActionResult Show(string Search)
         {
-            return View(db.produit);
+            if (Search == null)
+            {
+                return View(db.produit);
+            }
+            else
+            {
+                return View(db.produit.Where(x => x.NAME_PRODUIT.Contains(Search)));
+            }
+                
+            
         }
         // GET: ordinateur
-        public ActionResult ordinateur()
-        {  
-            return View(db.produit);
+        public ActionResult ordinateur(string Search)
+        {
+            if (Search == null)
+            {
+                return View(db.produit);
+            }
+            else
+            {
+                return View(db.produit.Where(x => x.NAME_PRODUIT.Contains(Search)));
+            }
+
         }
         // GET: produits
-        public ActionResult mobile()
+        public ActionResult mobile(string Search)
         {
-            return View(db.produit);
+            if (Search == null)
+            {
+                return View(db.produit);
+            }
+            else
+            {
+                return View(db.produit.Where(x => x.NAME_PRODUIT.Contains(Search)));
+            }
+
         }
         // GET: produits
-        public ActionResult system()
+        public ActionResult system(string Search)
         {
-            return View(db.produit);
+            if (Search == null)
+            {
+                return View(db.produit);
+            }
+            else
+            {
+                return View(db.produit.Where(x => x.NAME_PRODUIT.Contains(Search)));
+            }
+               
         }
 
         // GET: produits/Details/5
@@ -158,5 +191,6 @@ namespace exemple_mvc.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

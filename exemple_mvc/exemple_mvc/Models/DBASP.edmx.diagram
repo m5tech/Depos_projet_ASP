@@ -4,12 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3d6e7a911e434316805f5fdb33ab9d3e" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_ASP_ProjetModel.admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_ASP_ProjetModel.client" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_ASP_ProjetModel.commande" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_ASP_ProjetModel.produit" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_ASP_ProjetModel.service" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="44c65d27731749b6815528fc51f54d43" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_ASP_ProjetModel.admin" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_ASP_ProjetModel.client" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_ASP_ProjetModel.commande" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_ASP_ProjetModel.Details_Command" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_ASP_ProjetModel.produit" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_ASP_ProjetModel.service" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DB_ASP_ProjetModel.FK_commande_client" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_ASP_ProjetModel.FK_Details_Command_commande" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_ASP_ProjetModel.FK_Details_Command_produit" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -34,11 +34,11 @@
                 <div class="card-body">
                     <h3 class="card-title">@Model.NAME_PRODUIT</h3>
                     <h4>@Model.PRIX DH</h4>
-                    <p class="card-text">@Model.DESCRIPTION</p>
+                    <p class="card-text">@Model.DESCRIPTION_PR</p>
 
-                    <label for="quantity">Quantité :</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="20" style="margin-right:60px;">
-                    <a href="#" class="btn btn-success">ACHETER</a>
+                    <label for="qty">Quantité :</label>
+                    <input type="number" id="qty" name="qty" min="1" max="20" value="1" style="margin-right:60px;">
+                    <a href="#" class="btn btn-success">ACHETER</a> <a href="@Url.Action("Add", "AddToCart", new { produit = Model,Id=Model.ID_PR }))" class="btn btn-success"><i class="fas fa-cart-plus"></i></a>
                 </div>
             </div>
             <!-- /.card -->

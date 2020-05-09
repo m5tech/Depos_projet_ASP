@@ -42,6 +42,12 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="@Url.Action("Myorder", "AddToCart")"><i class="fas fa-shopping-cart"></i>@if (Session["count"] != null)
+                        {<span class="badge" style="color:black;background-color:white;border-radius:100%;">@Session["count"]</span>}
+                    else
+                    {<span class="badge" style="color:black;background-color:white;border-radius:100%;">0</span>}</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -109,7 +115,7 @@
                 @foreach (var item in Model)
                 {
                     <div class="col-md-4 col-sm-6 portfolio-item">
-                        <a class="portfolio-link" data-toggle="modal" href="#item-@item.ID">
+                        <a class="portfolio-link" data-toggle="modal" href="#item-@item.ID_SRV">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content">
                                     <i class="fas fa-check-circle fa-3x"></i>
@@ -370,7 +376,7 @@
     <!-- Modal 1 -->
     @foreach (var item in Model)
     {
-        <div class="portfolio-modal modal fade" id="item-@item.ID" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="item-@item.ID_SRV" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-dismiss="modal">

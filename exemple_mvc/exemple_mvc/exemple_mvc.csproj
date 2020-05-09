@@ -238,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddToCartController.cs" />
     <Compile Include="Controllers\CmdController.cs" />
     <Compile Include="Controllers\produitsController.cs" />
     <Compile Include="Controllers\servicesController.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="Models\admin.cs">
       <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\cart.cs" />
     <Compile Include="Models\client.cs">
       <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
@@ -267,6 +269,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBASP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Details_Command.cs">
+      <DependentUpon>DBASP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\produit.cs">
       <DependentUpon>DBASP.tt</DependentUpon>
@@ -353,6 +358,7 @@
     <Content Include="Views\services\Index.cshtml" />
     <Content Include="Views\Cmd\Accueil.cshtml" />
     <Content Include="Views\services\Accueil.cshtml" />
+    <Content Include="Views\AddToCart\Myorder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

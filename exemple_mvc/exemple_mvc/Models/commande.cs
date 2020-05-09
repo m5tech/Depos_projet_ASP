@@ -14,10 +14,21 @@ namespace exemple_mvc.Models
     
     public partial class commande
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public commande()
+        {
+            this.Details_Command = new HashSet<Details_Command>();
+        }
+    
+        public int ID_CMD { get; set; }
         public string NOM_CLIENT { get; set; }
         public Nullable<decimal> TOTAL { get; set; }
         public string TYPE_COMMANDE { get; set; }
-        public Nullable<int> QUNTITE { get; set; }
+        public Nullable<int> ID_CLN { get; set; }
+        public Nullable<System.DateTime> DATE_CMDE { get; set; }
+    
+        public virtual client client { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Details_Command> Details_Command { get; set; }
     }
 }

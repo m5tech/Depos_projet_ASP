@@ -7,18 +7,18 @@
       <Schema Namespace="DB_ASP_ProjetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="admin">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_ADM" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ADM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOM_ADMIN" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="client">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_CLN" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CLN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOM_CILENT" Type="nvarchar" MaxLength="50" />
           <Property Name="ADRESSE" Type="nvarchar" MaxLength="50" />
           <Property Name="TYPE_CLIENT" Type="nvarchar" MaxLength="50" />
@@ -26,41 +26,101 @@
         </EntityType>
         <EntityType Name="commande">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_CMD" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CMD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOM_CLIENT" Type="nvarchar" MaxLength="50" />
           <Property Name="TOTAL" Type="decimal" Precision="18" Scale="0" />
           <Property Name="TYPE_COMMANDE" Type="nvarchar" MaxLength="50" />
-          <Property Name="QUNTITE" Type="int" />
+          <Property Name="ID_CLN" Type="int" />
+          <Property Name="DATE_CMDE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Details_Command">
+          <Key>
+            <PropertyRef Name="ID_DC" />
+          </Key>
+          <Property Name="ID_DC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CMD" Type="int" />
+          <Property Name="ID_PR" Type="int" />
+          <Property Name="QUANTITY" Type="int" />
+          <Property Name="DATE_CMD" Type="datetime" />
         </EntityType>
         <EntityType Name="produit">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_PR" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME_PRODUIT" Type="nvarchar" MaxLength="50" />
           <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+          <Property Name="DESCRIPTION_PR" Type="nvarchar" MaxLength="50" />
           <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
           <Property Name="TYPE_PRODUIT" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="service">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_SRV" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_SRV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
           <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
           <Property Name="NOM_SERVICE" Type="nvarchar" MaxLength="50" />
           <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <Association Name="FK_commande_client">
+          <End Role="client" Type="Self.client" Multiplicity="0..1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="ID_CLN" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="ID_CLN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Command_commande">
+          <End Role="commande" Type="Self.commande" Multiplicity="0..1" />
+          <End Role="Details_Command" Type="Self.Details_Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commande">
+              <PropertyRef Name="ID_CMD" />
+            </Principal>
+            <Dependent Role="Details_Command">
+              <PropertyRef Name="ID_CMD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Command_produit">
+          <End Role="produit" Type="Self.produit" Multiplicity="0..1" />
+          <End Role="Details_Command" Type="Self.Details_Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produit">
+              <PropertyRef Name="ID_PR" />
+            </Principal>
+            <Dependent Role="Details_Command">
+              <PropertyRef Name="ID_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DB_ASP_ProjetModelStoreContainer">
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="commande" EntityType="Self.commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Details_Command" EntityType="Self.Details_Command" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="produit" EntityType="Self.produit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_commande_client" Association="Self.FK_commande_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Command_commande" Association="Self.FK_Details_Command_commande">
+            <End Role="commande" EntitySet="commande" />
+            <End Role="Details_Command" EntitySet="Details_Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Command_produit" Association="Self.FK_Details_Command_produit">
+            <End Role="produit" EntitySet="produit" />
+            <End Role="Details_Command" EntitySet="Details_Command" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -69,60 +129,126 @@
       <Schema Namespace="DB_ASP_ProjetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="admin">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_ADM" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ADM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOM_ADMIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="client">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_CLN" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CLN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOM_CILENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ADRESSE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TYPE_CLIENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ICE" Type="Int32" />
+          <NavigationProperty Name="commande" Relationship="Self.FK_commande_client" FromRole="client" ToRole="commande" />
         </EntityType>
         <EntityType Name="commande">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_CMD" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CMD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOM_CLIENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="TYPE_COMMANDE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QUNTITE" Type="Int32" />
+          <Property Name="ID_CLN" Type="Int32" />
+          <Property Name="DATE_CMDE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="client" Relationship="Self.FK_commande_client" FromRole="commande" ToRole="client" />
+          <NavigationProperty Name="Details_Command" Relationship="Self.FK_Details_Command_commande" FromRole="commande" ToRole="Details_Command" />
+        </EntityType>
+        <EntityType Name="Details_Command">
+          <Key>
+            <PropertyRef Name="ID_DC" />
+          </Key>
+          <Property Name="ID_DC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CMD" Type="Int32" />
+          <Property Name="ID_PR" Type="Int32" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <Property Name="DATE_CMD" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="commande" Relationship="Self.FK_Details_Command_commande" FromRole="Details_Command" ToRole="commande" />
+          <NavigationProperty Name="produit" Relationship="Self.FK_Details_Command_produit" FromRole="Details_Command" ToRole="produit" />
         </EntityType>
         <EntityType Name="produit">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_PR" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME_PRODUIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PRIX" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION_PR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TYPE_PRODUIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Details_Command" Relationship="Self.FK_Details_Command_produit" FromRole="produit" ToRole="Details_Command" />
         </EntityType>
         <EntityType Name="service">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_SRV" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SRV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PRIX" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NOM_SERVICE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <Association Name="FK_commande_client">
+          <End Role="client" Type="Self.client" Multiplicity="0..1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="ID_CLN" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="ID_CLN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Command_commande">
+          <End Role="commande" Type="Self.commande" Multiplicity="0..1" />
+          <End Role="Details_Command" Type="Self.Details_Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commande">
+              <PropertyRef Name="ID_CMD" />
+            </Principal>
+            <Dependent Role="Details_Command">
+              <PropertyRef Name="ID_CMD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Command_produit">
+          <End Role="produit" Type="Self.produit" Multiplicity="0..1" />
+          <End Role="Details_Command" Type="Self.Details_Command" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produit">
+              <PropertyRef Name="ID_PR" />
+            </Principal>
+            <Dependent Role="Details_Command">
+              <PropertyRef Name="ID_PR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DB_ASP_ProjetEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="admin" EntityType="Self.admin" />
           <EntitySet Name="client" EntityType="Self.client" />
           <EntitySet Name="commande" EntityType="Self.commande" />
+          <EntitySet Name="Details_Command" EntityType="Self.Details_Command" />
           <EntitySet Name="produit" EntityType="Self.produit" />
           <EntitySet Name="service" EntityType="Self.service" />
+          <AssociationSet Name="FK_commande_client" Association="Self.FK_commande_client">
+            <End Role="client" EntitySet="client" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Command_commande" Association="Self.FK_Details_Command_commande">
+            <End Role="commande" EntitySet="commande" />
+            <End Role="Details_Command" EntitySet="Details_Command" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Command_produit" Association="Self.FK_Details_Command_produit">
+            <End Role="produit" EntitySet="produit" />
+            <End Role="Details_Command" EntitySet="Details_Command" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -133,7 +259,7 @@
           <EntitySetMapping Name="admin">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.admin">
               <MappingFragment StoreEntitySet="admin">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_ADM" ColumnName="ID_ADM" />
                 <ScalarProperty Name="NOM_ADMIN" ColumnName="NOM_ADMIN" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
@@ -143,7 +269,7 @@
           <EntitySetMapping Name="client">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.client">
               <MappingFragment StoreEntitySet="client">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_CLN" ColumnName="ID_CLN" />
                 <ScalarProperty Name="NOM_CILENT" ColumnName="NOM_CILENT" />
                 <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
                 <ScalarProperty Name="TYPE_CLIENT" ColumnName="TYPE_CLIENT" />
@@ -154,21 +280,33 @@
           <EntitySetMapping Name="commande">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.commande">
               <MappingFragment StoreEntitySet="commande">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_CMD" ColumnName="ID_CMD" />
                 <ScalarProperty Name="NOM_CLIENT" ColumnName="NOM_CLIENT" />
                 <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
                 <ScalarProperty Name="TYPE_COMMANDE" ColumnName="TYPE_COMMANDE" />
-                <ScalarProperty Name="QUNTITE" ColumnName="QUNTITE" />
+                <ScalarProperty Name="ID_CLN" ColumnName="ID_CLN" />
+                <ScalarProperty Name="DATE_CMDE" ColumnName="DATE_CMDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details_Command">
+            <EntityTypeMapping TypeName="DB_ASP_ProjetModel.Details_Command">
+              <MappingFragment StoreEntitySet="Details_Command">
+                <ScalarProperty Name="ID_DC" ColumnName="ID_DC" />
+                <ScalarProperty Name="ID_CMD" ColumnName="ID_CMD" />
+                <ScalarProperty Name="ID_PR" ColumnName="ID_PR" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="DATE_CMD" ColumnName="DATE_CMD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="produit">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.produit">
               <MappingFragment StoreEntitySet="produit">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_PR" ColumnName="ID_PR" />
                 <ScalarProperty Name="NAME_PRODUIT" ColumnName="NAME_PRODUIT" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="DESCRIPTION_PR" ColumnName="DESCRIPTION_PR" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
                 <ScalarProperty Name="TYPE_PRODUIT" ColumnName="TYPE_PRODUIT" />
               </MappingFragment>
@@ -177,7 +315,7 @@
           <EntitySetMapping Name="service">
             <EntityTypeMapping TypeName="DB_ASP_ProjetModel.service">
               <MappingFragment StoreEntitySet="service">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_SRV" ColumnName="ID_SRV" />
                 <ScalarProperty Name="PRIX" ColumnName="PRIX" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
                 <ScalarProperty Name="NOM_SERVICE" ColumnName="NOM_SERVICE" />

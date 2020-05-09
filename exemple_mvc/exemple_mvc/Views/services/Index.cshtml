@@ -19,7 +19,7 @@
             @Html.DisplayNameFor(model => model.PRIX)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DESCRIPTON)
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IMAGE)
@@ -36,15 +36,15 @@
             @Html.DisplayFor(modelItem => item.PRIX)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DESCRIPTON)
+            @Html.DisplayFor(modelItem => item.DESCRIPTION)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IMAGE)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SRV }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_SRV }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_SRV })
         </td>
     </tr>
 }

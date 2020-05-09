@@ -54,6 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="http://localhost:52825/services/Accueil#contact">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="@Url.Action("Myorder", "AddToCart")"><i class="fas fa-shopping-cart" ></i>@if(Session["count"]!=null){<span class="badge" style="color:black;background-color:white;border-radius:100%;">@Session["count"]</span>}else{<span class="badge" style="color:black;background-color:white;border-radius:100%;">0</span>}</a>
+                    </li>
                 </ul>
             </div>
         </div>

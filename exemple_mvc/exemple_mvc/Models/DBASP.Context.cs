@@ -28,6 +28,7 @@ namespace exemple_mvc.Models
         public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<client> client { get; set; }
         public virtual DbSet<commande> commande { get; set; }
+        public virtual DbSet<Details_Command> Details_Command { get; set; }
         public virtual DbSet<produit> produit { get; set; }
         public virtual DbSet<service> service { get; set; }
     }

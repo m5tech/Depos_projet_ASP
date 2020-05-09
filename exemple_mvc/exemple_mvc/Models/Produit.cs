@@ -11,14 +11,34 @@ namespace exemple_mvc.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Configuration;
+
     public partial class produit
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public produit()
+        {
+            this.Details_Command = new HashSet<Details_Command>();
+        }
+
+        public int ID_PR { get; set; }
         public string NAME_PRODUIT { get; set; }
         public Nullable<decimal> PRIX { get; set; }
-        public string DESCRIPTION { get; set; }
+        public string DESCRIPTION_PR { get; set; }
         public string IMAGE { get; set; }
         public string TYPE_PRODUIT { get; set; }
+
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Details_Command> Details_Command { get; set; }
+        /// <summary>
+        /// 0
+        /// </summary>
+        /// <returns></returns>
+
     }
 }

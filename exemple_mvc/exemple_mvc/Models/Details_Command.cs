@@ -12,12 +12,15 @@ namespace exemple_mvc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class service
+    public partial class Details_Command
     {
-        public int ID_SRV { get; set; }
-        public Nullable<decimal> PRIX { get; set; }
-        public string IMAGE { get; set; }
-        public string NOM_SERVICE { get; set; }
-        public string DESCRIPTION { get; set; }
+        public int ID_DC { get; set; }
+        public Nullable<int> ID_CMD { get; set; }
+        public Nullable<int> ID_PR { get; set; }
+        public Nullable<int> QUANTITY { get; set; }
+        public Nullable<System.DateTime> DATE_CMD { get; set; }
+    
+        public virtual commande commande { get; set; }
+        public virtual produit produit { get; set; }
     }
 }

@@ -14,10 +14,19 @@ namespace exemple_mvc.Models
     
     public partial class client
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public client()
+        {
+            this.commande = new HashSet<commande>();
+        }
+    
+        public int ID_CLN { get; set; }
         public string NOM_CILENT { get; set; }
         public string ADRESSE { get; set; }
         public string TYPE_CLIENT { get; set; }
         public Nullable<int> ICE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<commande> commande { get; set; }
     }
 }

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<exemple_mvc.Models.cart>
+@{
+    ViewBag.Title = "Myorder";
+    Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
+}
+
+<h1>Mes Produits</h1>
+
+<div id="conteneur">
+
+    @if (Session["cart"] == null)
+    {
+        <h1>Votre Panier Et Vide !!</h1><br /><br /><br /><br />
+        <h1> <a class="btn btn-success" href="@Url.Action("Show","produits")"><i class="fas fa-undo-alt"></i> Retour au Page Produits</a></h1>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    Votre Produit
+                </th>
+                <th>
+                    Image de produit
+                </th>
+                <th>Quantité</th>
+                <th>
+                    Prix de produit
+                </th>
+
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productname)
+                    </td>
+                    <td>
+                        <img style="width:150px;border-radius:70%;" class="card-img-top img-fluid" src="~/img/portfolio/@item.productimg">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.qty)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price) DH
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Remove","AddToCart",new { id = item.productid })"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <h1>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        </h1>
+    }
+
+
+</div>

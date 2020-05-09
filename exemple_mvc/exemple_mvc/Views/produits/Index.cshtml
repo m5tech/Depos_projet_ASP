@@ -5,56 +5,61 @@
     Layout = "~/Views/Shared/_LayoutGlobal.cshtml";
 }
 
-<h2>Index</h2>
+<h1>Index</h1>
 
 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NAME_PRODUIT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRIX)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DESCRIPTION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IMAGE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TYPE_PRODUIT)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NAME_PRODUIT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PRIX)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DESCRIPTION)
-        </td>
-        <td>
-            <img width="100" src="~/img/portfolio/@Html.DisplayFor(modelItem => item.IMAGE)">
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TYPE_PRODUIT)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-        </td>
-    </tr>
-}
+<div id="conteneur">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME_PRODUIT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRIX)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRIPTION_PR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IMAGE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TYPE_PRODUIT)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME_PRODUIT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRIX)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DESCRIPTION_PR)
+                </td>
+                <td>
+                    <img width="100" src="~/img/portfolio/@Html.DisplayFor(modelItem => item.IMAGE)">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TYPE_PRODUIT)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ID_PR })*@ <a href="@Url.Action("Edit",null,new { id = item.ID_PR })"><i class="fas fa-edit"></i></a> |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.ID_PR })*@ <a href="@Url.Action("Details",null,new { id = item.ID_PR })"><i class="fas fa-info-circle"></i></a> |
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.ID_PR })*@<a href="@Url.Action("Details",null,new { id = item.ID_PR })"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <h1>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </h1>     
+
+</div>

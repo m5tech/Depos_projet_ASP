@@ -4,7 +4,7 @@
     <EntitySetMapping Name="admin">
       <EntityTypeMapping TypeName="DB_ASP_ProjetModel.admin">
         <MappingFragment StoreEntitySet="admin">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_ADM" ColumnName="ID_ADM" />
           <ScalarProperty Name="NOM_ADMIN" ColumnName="NOM_ADMIN" />
           <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
           <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
@@ -14,7 +14,7 @@
     <EntitySetMapping Name="client">
       <EntityTypeMapping TypeName="DB_ASP_ProjetModel.client">
         <MappingFragment StoreEntitySet="client">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_CLN" ColumnName="ID_CLN" />
           <ScalarProperty Name="NOM_CILENT" ColumnName="NOM_CILENT" />
           <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
           <ScalarProperty Name="TYPE_CLIENT" ColumnName="TYPE_CLIENT" />
@@ -25,21 +25,33 @@
     <EntitySetMapping Name="commande">
       <EntityTypeMapping TypeName="DB_ASP_ProjetModel.commande">
         <MappingFragment StoreEntitySet="commande">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_CMD" ColumnName="ID_CMD" />
           <ScalarProperty Name="NOM_CLIENT" ColumnName="NOM_CLIENT" />
           <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
           <ScalarProperty Name="TYPE_COMMANDE" ColumnName="TYPE_COMMANDE" />
-          <ScalarProperty Name="QUNTITE" ColumnName="QUNTITE" />
+          <ScalarProperty Name="ID_CLN" ColumnName="ID_CLN" />
+          <ScalarProperty Name="DATE_CMDE" ColumnName="DATE_CMDE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Details_Command">
+      <EntityTypeMapping TypeName="DB_ASP_ProjetModel.Details_Command">
+        <MappingFragment StoreEntitySet="Details_Command">
+          <ScalarProperty Name="ID_DC" ColumnName="ID_DC" />
+          <ScalarProperty Name="ID_CMD" ColumnName="ID_CMD" />
+          <ScalarProperty Name="ID_PR" ColumnName="ID_PR" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="DATE_CMD" ColumnName="DATE_CMD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="produit">
       <EntityTypeMapping TypeName="DB_ASP_ProjetModel.produit">
         <MappingFragment StoreEntitySet="produit">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_PR" ColumnName="ID_PR" />
           <ScalarProperty Name="NAME_PRODUIT" ColumnName="NAME_PRODUIT" />
           <ScalarProperty Name="PRIX" ColumnName="PRIX" />
-          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="DESCRIPTION_PR" ColumnName="DESCRIPTION_PR" />
           <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
           <ScalarProperty Name="TYPE_PRODUIT" ColumnName="TYPE_PRODUIT" />
         </MappingFragment>
@@ -48,7 +60,7 @@
     <EntitySetMapping Name="service">
       <EntityTypeMapping TypeName="DB_ASP_ProjetModel.service">
         <MappingFragment StoreEntitySet="service">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_SRV" ColumnName="ID_SRV" />
           <ScalarProperty Name="PRIX" ColumnName="PRIX" />
           <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
           <ScalarProperty Name="NOM_SERVICE" ColumnName="NOM_SERVICE" />

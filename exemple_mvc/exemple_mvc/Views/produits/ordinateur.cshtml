@@ -13,9 +13,13 @@
 
             <h1 class="my-4">Notre Magazin</h1>
             <div class="list-group">
-                <a href="http://localhost:52825/produits/mobile" class="list-group-item">Mobile</a>
-                <a href="http://localhost:52825/produits/ordinateur" class="list-group-item">Ordinateur</a>
-                <a href="http://localhost:52825/produits/system" class="list-group-item">Systéme De Surveillance</a>
+                @using (Html.BeginForm("Show", "produits", FormMethod.Get, new { @class = "list-group" }))
+                {
+                    <input type="text" name="Search" placeholder="Tapez Votre Produit à chercher"> <input type="submit" value="Chercher" /><br />
+                }
+                <a href="http://localhost:52825/produits/mobile" class="list-group-item">Mobiles</a>
+                <a href="http://localhost:52825/produits/ordinateur" class="list-group-item">Ordinateurs</a>
+                <a href="http://localhost:52825/produits/system" class="list-group-item">Systémes De Surveillance</a>
                 <a href="http://localhost:52825/produits/Show" class="list-group-item">Afficher tout</a>
             </div>
 
@@ -54,25 +58,31 @@
             <div class="row">
                 @foreach (var item in Model)
                 {
-                    if (item.TYPE_PRODUIT=="ordinateur") { 
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="http://localhost:52825/produits/ArticleInfo/@item.ID"><img class="card-img-top" src="~/img/portfolio/@Html.DisplayFor(modelItem => item.IMAGE)"></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a>@Html.ActionLink(item.NAME_PRODUIT, "ArticleInfo", new { id = item.ID })</a>
-                                </h4>
-                                <h5> @Html.DisplayFor(modelItem => item.PRIX) DH</h5>
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPTION)</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted" style="font-weight:bold;">Catégorie : Ordinateur</small>
+                    if (item.TYPE_PRODUIT == "ordinateur")
+                    {
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="http://localhost:52825/produits/ArticleInfo/@item.ID_PR"><img class="card-img-top" src="~/img/portfolio/@Html.DisplayFor(modelItem => item.IMAGE)"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a>@Html.ActionLink(item.NAME_PRODUIT, "ArticleInfo", new { id = item.ID_PR })</a>
+                                    </h4>
+                                    <h5> @Html.DisplayFor(modelItem => item.PRIX) DH</h5>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.DESCRIPTION_PR)</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted" style="font-weight:bold;">Catégorie : Ordinateur</small>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     }
+
                 }
-                </div>
+                @if (Model.Count() == 0)
+                {
+                    <h1>Produit Introuvable</h1>
+                }
+            </div>
             <!-- /.row -->
 
         </div>

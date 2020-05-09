@@ -2,18 +2,18 @@
 <Schema Namespace="DB_ASP_ProjetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="admin">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_ADM" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_ADM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOM_ADMIN" Type="nvarchar" MaxLength="50" />
     <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
     <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="client">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_CLN" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_CLN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOM_CILENT" Type="nvarchar" MaxLength="50" />
     <Property Name="ADRESSE" Type="nvarchar" MaxLength="50" />
     <Property Name="TYPE_CLIENT" Type="nvarchar" MaxLength="50" />
@@ -21,40 +21,100 @@
   </EntityType>
   <EntityType Name="commande">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_CMD" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_CMD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOM_CLIENT" Type="nvarchar" MaxLength="50" />
     <Property Name="TOTAL" Type="decimal" Precision="18" Scale="0" />
     <Property Name="TYPE_COMMANDE" Type="nvarchar" MaxLength="50" />
-    <Property Name="QUNTITE" Type="int" />
+    <Property Name="ID_CLN" Type="int" />
+    <Property Name="DATE_CMDE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Details_Command">
+    <Key>
+      <PropertyRef Name="ID_DC" />
+    </Key>
+    <Property Name="ID_DC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_CMD" Type="int" />
+    <Property Name="ID_PR" Type="int" />
+    <Property Name="QUANTITY" Type="int" />
+    <Property Name="DATE_CMD" Type="datetime" />
   </EntityType>
   <EntityType Name="produit">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_PR" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NAME_PRODUIT" Type="nvarchar" MaxLength="50" />
     <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="DESCRIPTION_PR" Type="nvarchar" MaxLength="50" />
     <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
     <Property Name="TYPE_PRODUIT" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="service">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ID_SRV" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_SRV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PRIX" Type="decimal" Precision="18" Scale="0" />
     <Property Name="IMAGE" Type="nvarchar" MaxLength="50" />
     <Property Name="NOM_SERVICE" Type="nvarchar" MaxLength="50" />
     <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <Association Name="FK_commande_client">
+    <End Role="client" Type="Self.client" Multiplicity="0..1" />
+    <End Role="commande" Type="Self.commande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="ID_CLN" />
+      </Principal>
+      <Dependent Role="commande">
+        <PropertyRef Name="ID_CLN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Details_Command_commande">
+    <End Role="commande" Type="Self.commande" Multiplicity="0..1" />
+    <End Role="Details_Command" Type="Self.Details_Command" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="commande">
+        <PropertyRef Name="ID_CMD" />
+      </Principal>
+      <Dependent Role="Details_Command">
+        <PropertyRef Name="ID_CMD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Details_Command_produit">
+    <End Role="produit" Type="Self.produit" Multiplicity="0..1" />
+    <End Role="Details_Command" Type="Self.Details_Command" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="produit">
+        <PropertyRef Name="ID_PR" />
+      </Principal>
+      <Dependent Role="Details_Command">
+        <PropertyRef Name="ID_PR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="DB_ASP_ProjetModelStoreContainer">
     <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="commande" EntityType="Self.commande" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Details_Command" EntityType="Self.Details_Command" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="produit" EntityType="Self.produit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_commande_client" Association="Self.FK_commande_client">
+      <End Role="client" EntitySet="client" />
+      <End Role="commande" EntitySet="commande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Details_Command_commande" Association="Self.FK_Details_Command_commande">
+      <End Role="commande" EntitySet="commande" />
+      <End Role="Details_Command" EntitySet="Details_Command" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Details_Command_produit" Association="Self.FK_Details_Command_produit">
+      <End Role="produit" EntitySet="produit" />
+      <End Role="Details_Command" EntitySet="Details_Command" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>
